@@ -20,7 +20,7 @@ You can run this project using either a standard Python virtual environment or D
 **Instructions:**
 
 1. **Clone the repository:**  
-   git clone https://github.com/IslamMohamedAbdelaziz/fitness-form-analyzer.git
+   git clone https://github.com/IslamMohamedAbdelaziz/fitness-form-analyzer.git \
    cd  PoseDetector
 
 2. **Create and activate a virtual environment:**  
