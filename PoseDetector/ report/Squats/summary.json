@@ -1,0 +1,17 @@
+{
+    "video_id": "Squats.mp4",
+    "summary": {
+        "squats": {
+            "total_reps": 5,
+            "good_form_reps": 4,
+            "common_issues": [
+                "INSUFFICIENT_DEPTH"
+            ]
+        },
+        "pushups": {
+            "total_reps": 0,
+            "good_form_reps": 0,
+            "common_issues": []
+        }
+    }
+}

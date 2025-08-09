@@ -1,0 +1,15 @@
+{
+    "video_id": "Push-ups.mp4",
+    "summary": {
+        "squats": {
+            "total_reps": 0,
+            "good_form_reps": 0,
+            "common_issues": []
+        },
+        "pushups": {
+            "total_reps": 3,
+            "good_form_reps": 3,
+            "common_issues": []
+        }
+    }
+}
