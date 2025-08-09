@@ -3,6 +3,31 @@ import os
 import csv
 import json
 from pose_detector import PoseDetector # type: ignore
+# ----------------- EMA FILTER -----------------
+previous_smoothed_landmarks = None
+
+def smooth_landmarks(landmarks, alpha=0.2):
+    """
+    Apply EMA smoothing to reduce jitter in keypoint positions.
+    """
+    global previous_smoothed_landmarks
+    if landmarks is None or len(landmarks) == 0:
+        return landmarks
+
+    if previous_smoothed_landmarks is None:
+        previous_smoothed_landmarks = landmarks
+        return landmarks
+
+    smoothed = []
+    for prev, curr in zip(previous_smoothed_landmarks, landmarks):
+        lm_id = curr[0]
+        sm_x = alpha * curr[1] + (1 - alpha) * prev[1]
+        sm_y = alpha * curr[2] + (1 - alpha) * prev[2]
+        smoothed.append([lm_id, sm_x, sm_y])
+
+    previous_smoothed_landmarks = smoothed
+    return smoothed
+# ------------------------------------------------
 
 def calculate_angle(a, b, c):
     """
@@ -37,6 +62,8 @@ def analyze_video(frames,video_id):
     for idx, frame in enumerate(frames):
         frame = detector.find_pose(frame, draw=False)
         landmarks = detector.get_landmarks(frame)
+        # 🔹 Apply EMA temporal smoothing
+        landmarks = smooth_landmarks(landmarks, alpha=0.2)
         is_form_ok_this_frame = True
         if not landmarks:
             continue
