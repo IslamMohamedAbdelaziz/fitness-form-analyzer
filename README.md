@@ -10,6 +10,7 @@ The core of the service is an analysis engine that processes video frames to:
 * Calculate joint angles to determine the state of an exercise.  
 * Implement a Finite-State Machine (FSM) for robust repetition counting.  
 * Assess the quality of each repetition based on a set of biomechanical rules.
+* Implemented Exponential Moving Average (EMA) for Pose Landmarks
 
 ## **2\. Setup and Installation**
 
