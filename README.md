@@ -138,4 +138,3 @@ Single Person Only: The current logic is designed to track only one person in th
 
 Hardcoded Thresholds: Form-checking rules (e.g., the 40 pixel offset for knee travel) are based on hardcoded pixel values and may not be accurate for all video resolutions or user distances from the camera. A more robust solution would use ratios of body parts.
 
-No Keypoint Smoothing: The provided code does not yet implement a temporal filter. This can lead to jitter in the angle calculations.
